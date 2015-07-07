@@ -1,0 +1,43 @@
+<div class="container">
+<form name="myForm" >
+
+	<h1>vote for technology</h1>
+
+
+	<div class={{message.class}} role="alert" ng-show=message>{{message.text}}</div>
+
+	<table class="table table-striped">
+		<tr ng-repeat="o in options">
+
+			<td><input type="radio" ng-model=voter.vote value={{o.name}}></td>
+			<td><i class={{o.class}} ></i> {{o.name}}</td>
+			<td>{{o.description}}</td>
+
+
+		</tr>
+	</table>
+
+
+
+	email : <input type="email" ng-model=voter.email />
+
+
+
+	<a ng-href="" ng-click='callVote()' class="btn btn-primary">submit</a>
+</form>
+
+
+
+
+<div class="row">
+	<p>so far {{votes.length}} have voted.</p>
+</div>	
+
+</div>
+
+
+
+
+
+
+
