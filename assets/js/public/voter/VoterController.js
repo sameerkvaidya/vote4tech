@@ -12,10 +12,12 @@ angular.module('VoterModule')
 		$scope.options = [{name:'JavaEE', description:'Matured and Strongly typed.', class:'fa fa-coffee'},
 						{name: 'Node', description:'Young and Dynamic.', class:'fa fa-beer'}];
 
-
+		$scope.voted = false;				
 
 		$scope.message = {class: 'alert alert-danger', };
 		
+		$scope.JavaEE = 'JavaEE';
+		$scope.Node = 'Node';
 
 
 		$scope.callVote = function(){
@@ -38,7 +40,7 @@ angular.module('VoterModule')
 
 
 
-
+			$scope.voted = true;
 
 			$http.post('/vote',$scope.voter).
 					then(function onSuccess(res){

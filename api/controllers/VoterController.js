@@ -5,6 +5,9 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+
+var generic = require('generic');
+
 module.exports = {
 
 	home: function(req, res){
@@ -31,6 +34,19 @@ module.exports = {
 					then(
 						function(data){
 							console.log("done creating ..."+data)
+
+
+							var mailOptions = {
+									 	       	from: "vote@usac.org",
+													to  : voter.email,
+													subject: "Thank you",
+													text: "Your vote has been registered.",
+													html: "<p>you got the <strong>idea</strong>.</p>"
+											}
+
+							generic.emailService.init('google', 'sameerkvaidya@gmail.com', 'sportster883');
+							generic.emailService.send(mailOptions);
+
 							return res.send(" Thank you for voting. Your vote is important to us.");
 						})
 					.error(

@@ -23,15 +23,27 @@
 
 
 
-	<a ng-href="" ng-click='callVote()' class="btn btn-primary">submit</a>
+	<a ng-href="" ng-disabled="voted" ng-click='callVote()' class="btn btn-primary">submit</a>
 </form>
 
 
 
 
 <div class="row">
-	<p>so far {{votes.length}} have voted.</p>
+	<p>Number of people voted : {{votes.length}}</p>
 </div>	
+
+<div class="row">
+
+	<p> Node : <a href='' ng-repeat='v in votes | filter: Node '>  <i class='fa fa-beer'></i></a>
+	<p> JavaEE : <a href='' ng-repeat='v in votes | filter: JavaEE '>  <i class='fa fa-coffee'></i></a>
+	
+
+</div>	
+
+
+
+
 
 </div>
 
